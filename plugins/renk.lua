@@ -1,281 +1,180 @@
-do		
- local Executive1 = 45342395 , 30373376 --put your id here(BOT OWNER ID)
- 		
- local function setrank(msg, name, value) -- setrank function		
-   local hash = nil		
-   if msg.to.type == 'chat' then		
-     hash = 'rank:'..msg.to.id..':variables'		
-   end		
-   if hash then		
-     redis:hset(hash, name, value)		
- 	return send_msg('chat#id'..msg.to.id, 'set Rank for ('..name..') To : '..value, ok_cb,  true)		
-   end		
- end		
- 		
- 		
-  local function res_user_callback(extra, success, result) -- /info <username> function		
-   if success == 1 then  		
-   if result.username then		
-    Username = '@'..result.username		
-    else		
-    Username = '----'		
-   end		
-     local text = '🔷-Full name : '..(result.first_name or '')..' '..(result.last_name or '')..'\n'		
-                ..'🔷-User name: '..Username..'\n'		
-                ..'🔷-ID : '..result.id..'\n'		
-  	local hash = 'rank:'..extra.chat2..':variables'		
-  	local value = redis:hget(hash, result.id)		
-     if not value then		
-  	   if is_admin(result.id) then		
-  	   text = text..'🔷-Rank : Admin \n'		
-    elseif is_admin2(result.id, extra.chat2) then		
-    text = text..'🔷-Rank : admin \n'		
-   elseif is_momod2(result.id, extra.chat2) then		
-    text = text..'🔷-Rank : Moderator \n'		
-       else		
-   text = text..'🔷-Rank : Member \n'		
-  end		
-    else		
-    text = text..'🔷-Rank : '..value..'\n'		
-   end		
-  if result.from.id == tonumber(Executive1) then		
-       text = text..'🔷-creator : Yes \n'		
- 		     elseif result.from.id == tonumber(Executive2) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 		     elseif result.from.id == tonumber(Executive3) then		
- 		      text = text..'🔷-creator : Yes \n'		
- 		     elseif result.from.id == tonumber(Executive4) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 		     elseif result.from.id == tonumber(Executive5) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 			 else		
- 		       text = text..'🔷-creator : No \n'		
- 		 end		
-   local uhash = 'user:'..result.id		
-   local user = redis:hgetall(uhash)		
-   local um_hash = 'msgs:'..result.id..':'..extra.chat2		
-   user_info_msgs = tonumber(redis:get(um_hash) or 0)		
-   text = text..'🔷-messages sent : '..user_info_msgs..'\n'		
-   text = text..''		
-   send_msg(extra.receiver, text, ok_cb,  true)		
-   else		
- 	send_msg(extra.receiver, ' Username not found.', ok_cb, false)		
-   end		
- end		
- 		
-  local function action_by_id(extra, success, result)  -- /info <ID> function		
-  if success == 1 then		
-  if result.username then		
-    Username = '@'..result.username		
-    else		
-    Username = '----'		
-  end		
-    local text = '🔷-Full name : '..(result.first_name or '')..' '..(result.last_name or '')..'\n'		
-                ..'🔷-Username: '..Username..'\n'		
-                ..'🔷-ID : '..result.id..'\n'		
-   local hash = 'rank:'..extra.chat2..':variables'		
-   local value = redis:hget(hash, result.id)		
-   if not value then		
- 	  if is_admin2(result.id) then		
- 	   text = text..'🔷-Rank : Admin \n'		
- 	  elseif is_owner2(result.id, extra.chat2) then		
- 	   text = text..'🔷-Rank : Owner \n'		
- 	  elseif is_momod2(result.id, extra.chat2) then		
- 	   text = text..'🔷-Rank : Moderator \n'		
- 	  else		
- 	   text = text..'🔷-Rank : Member \n'		
- 	  end		
-    else		
-     text = text..'🔷-Rank : '..value..'\n'		
-   end		
- 		 if result.from.id == tonumber(Executive1) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 		     elseif result.from.id == tonumber(Executive2) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 		     elseif result.from.id == tonumber(Executive3) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 		     elseif result.from.id == tonumber(Executive4) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 		     elseif result.from.id == tonumber(Executive5) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 			 else		
- 		       text = text..'🔷-creator : No \n'		
- 		 end		
-   local uhash = 'user:'..result.id		
-   local user = redis:hgetall(uhash)		
-   local um_hash = 'msgs:'..result.id..':'..extra.chat2		
-   user_info_msgs = tonumber(redis:get(um_hash) or 0)		
-   text = text..'🔷-messages sent : '..user_info_msgs..'\n'		
-   text = text..''		
-   send_msg(extra.receiver, text, ok_cb,  true)		
-   else		
-   send_msg(extra.receiver, 'id not found.\nuse : /info @username', ok_cb, false)		
-   end		
- end		
- 		
- local function action_by_reply(extra, success, result)-- (reply) /info  function		
- 		if result.from.username then		
- 		   Username = '@'..result.from.username		
- 		   else		
- 		   Username = '----'		
- 		 end		
-   local text = '🔷-Full name : '..(result.from.first_name or '')..' '..(result.from.last_name or '')..'\n'		
-                ..'🔷-Username : '..Username..'\n'		
-                ..'🔷-ID : '..result.from.id..'\n'		
- 	local hash = 'rank:'..result.to.id..':variables'		
- 		local value = redis:hget(hash, result.from.id)		
- 		 if not value then		
- 		     if is_admin2(result.from.id) then		
- 		       text = text..'🔷-Rank : Admin \n'		
- 		     elseif is_owner2(result.from.id, result.to.id) then		
- 		       text = text..'🔷-Rank : Owner \n'		
- 		     elseif is_momod2(result.from.id, result.to.id) then		
- 		       text = text..'🔷-Rank : Moderator \n'		
- 		 else		
- 		       text = text..'🔷-Rank : Member \n'		
- 			end		
- 		
- 		  else		
- 		   text = text..'🔷-Rank : '..value..'\n'		
- 		 end		
- 		 if result.from.id == tonumber(Executive1) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 		     elseif result.from.id == tonumber(Executive2) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 		     elseif result.from.id == tonumber(Executive3) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 		     elseif result.from.id == tonumber(Executive4) then		
-  	       text = text..'🔷-creator : Yes \n'		
- 		     elseif result.from.id == tonumber(Executive5) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 			 else		
- 		       text = text..'🔷-creator : No \n'		
- 		 end			   		
-          local user_info = {} 		
-   local uhash = 'user:'..result.from.id		
-   local user = redis:hgetall(uhash)		
-   local um_hash = 'msgs:'..result.from.id..':'..result.to.id		
-   user_info_msgs = tonumber(redis:get(um_hash) or 0)		
-   text = text..'🔷-messages sent : '..user_info_msgs..'\n'		
-   text = text..' 1'		
-   send_msg(extra.receiver, text, ok_cb, true)		
- end		
- 		
-  local function action_by_reply2(extra, success, result)		
- local value = extra.value		
-  setrank(result, result.from.id, value)		
- end		
- 		
- local function run(msg, matches)		
-  if matches[1]:lower() == 'setrank' then		
-   local hash = 'usecommands:'..msg.from.id..':'..msg.to.id		
-   redis:incr(hash)		
-   if not is_sudo(msg) then		
-     return "Only for Sudo"		
-   end		
-   local receiver = get_receiver(msg)		
-   local Reply = msg.reply_id		
-   if msg.reply_id then		
-   local value = string.sub(matches[2], 1, 1000)		
-     msgr = get_message(msg.reply_id, action_by_reply2, {receiver=receiver, Reply=Reply, value=value})		
-   else		
-   local name = string.sub(matches[2], 1, 50)		
-   local value = string.sub(matches[3], 1, 1000)		
-   local text = setrank(msg, name, value)		
- 		
-   return text		
-   end		
-   end		
-  if matches[1]:lower() == 'id' and not matches[2] then		
-   local receiver = get_receiver(msg)		
-   local Reply = msg.reply_id		
-   if msg.reply_id then		
-     msgr = get_message(msg.reply_id, action_by_reply, {receiver=receiver, Reply=Reply})		
-   else		
-   if msg.from.username then		
-    Username = '@'..msg.from.username		
- else		
-    Username = '----'		
-    end		
-    local text = '🔷-First name : '..(msg.from.first_name or '----')..'\n'		
-    local text = text..'🔷-Last name : '..(msg.from.last_name or '----')..'\n'			
-    local text = text..'🔷-Username : '..Username..'\n'		
-    local text = text..'🔷-ID : '..msg.from.id..'\n'		
-    local hash = 'rank:'..msg.to.id..':variables'		
- 	if hash then		
- 	  local value = redis:hget(hash, msg.from.id)		
- 	  if not value then		
- 		if is_sudo(msg) then		
- 		 text = text..'🔷-Rank : sudo \n'	elseif is_admin(msg) then	text = text..'5-Rank : admin \n'	
- 		elseif is_owner(msg) then		
- 		 text = text..'🔷-Rank : Owner \n'		
- 		elseif is_momod(msg) then		
- 		 text = text..'🔷-Rank : Moderator \n'	elseif is_sudo(msg) then		
- 		 text = text..'🔷-Rank : sudo \n'	elseif is_admin(msg) then		
- 		 text = text..'🔷-Rank : admin \n'
- 		else		
-  	 text = text..'🔷-Rank : Member \n'		
- 		end		
- 	  else		
- 	   text = text..'🔷-Rank : '..value..'\n'		
- 	  end		
- 	end		
- 		 if msg.from.id == tonumber(Executive1) then		
- 		       text = text..'🔷-creator : Yes \n'		
- 		     elseif msg.from.id == tonumber(Executive2) then		
- 		       text = text..'🔷-creator : No \n'		
- 		     elseif msg.from.id == tonumber(Executive3) then		
- 		       text = text..'🔷-creator : No \n'		
- 		     elseif msg.from.id == tonumber(Executive4) then		
- 		       text = text..'🔷-creator : No \n'		
- 		     elseif msg.from.id == tonumber(Executive5) then		
- 		       text = text..'🔷-creator : No \n'		
- 			 else		
- 		       text = text..'🔷-creator : No \n'		
- 		 end		
- 	 local uhash = 'user:'..msg.from.id		
-  	 local user = redis:hgetall(uhash)		
-   	 local um_hash = 'msgs:'..msg.from.id..':'..msg.to.id		
- 	 user_info_msgs = tonumber(redis:get(um_hash) or 0)		
- 	 text = text..'🔷-messages sent : '..user_info_msgs..'\n'		
-     if msg.to.type == 'chat' then		
- 	 text = text..'Group name : '..msg.to.title..'\n'		
-      text = text..'Group ID : '..msg.to.id		
-     end		
-     text = text..''		
-     return send_msg(receiver, text, ok_cb, true)		
-     end		
-   end		
-   if matches[1]:lower() == 'df' and matches[2] then		
-    local user = matches[2]		
-    local chat2 = msg.to.id		
-    local receiver = get_receiver(msg)		
-    if string.match(user, '^%d+$') then		
-   user_info('user#id'..user, action_by_id, {receiver=receiver, user=user, text=text, chat2=chat2})		
-     elseif string.match(user, '^@.+$') then		
-       username = string.gsub(user, '@', '')		
-       msgr = res_user(username, res_user_callback, {receiver=receiver, user=user, text=text, chat2=chat2})		
-    end		
-   end		
- end		
- 		
- return {		
-   description = 'Know your information or the info of a chat members.',		
-   usage = {		
- 	'info: Return your info and the chat info if you are in one.',		
- 	'info [Reply]: Return info of replied user if used by reply.',		
- 	'info <id>: Return the info\'s of the <id>.',		
- 	'info @<user_name>: Return the member @<user_name> information from the current chat.',		
- 	'setrank <userid> <rank>: change members rank.',		
- 	'setrank <rank>[Reply]: change members rank.',		
-   },		
-   patterns = {		
-    "^(id)$",		
- 	"^(id) (.*)$",		
- 	"^([Ss]etrank) (%d+) (.*)$",		
- 	"^([Ss]etrank) (.*)$",		
-   },		
-   run = run		
- }		
- 		
- end	
+local function usernameinfo (user)
+  if user.username then
+    return '@'..user.username
+  end
+  if user.print_name then
+    return user.print_name
+  end
+  local text = ''
+  if user.first_name then
+    text = user.last_name..' '
+  end
+  if user.lastname then
+    text = text..user.last_name
+  end
+  return text
+end
+
+local function channelUserIDs (extra, success, result)
+  local receiver = extra.receiver
+  print('Result')
+  vardump(result)
+  
+  local text = ''
+  for k,user in ipairs(result) do
+    local id = user.peer_id
+    local username = usernameinfo (user)
+    text = text..("%s - %s\n"):format(username, id)
+  end
+  send_large_msg(receiver, text)
+end
+
+local function returnids (extra, success, result)
+  local receiver = extra.receiver
+  local chatname = result.print_name
+  local id = result.peer_id
+    
+  local text = ('ID for chat %s (%s):\n'):format(chatname, id)
+  for k,user in ipairs(result.members) do
+    local username = usernameinfo(user)
+    local id = user.peer_id
+    local userinfo = ("%s - %s\n"):format(username, id)
+    text = text .. userinfo
+  end
+  send_large_msg(receiver, text)
+end
+
+local function run(msg, matches)
+  local receiver = get_receiver(msg)
+
+  -- Id of the user and info about group / channel
+  if matches[1] == "id" then
+    if msg.to.type == 'channel' then
+      return ('Chat ID: %s\nUser ID: %s'):format(msg.to.id, msg.from.id)
+    end
+    if msg.to.type == 'chat' then
+      return ('Chat ID: %s\nUser ID: %s'):format(msg.to.id, msg.from.id)
+    end
+    return ('User ID: %s'):format(msg.from.id)
+  elseif matches[1] == 'chat' or matches[1] == 'channel' then
+    local type = matches[1]
+    local chanId = matches[2]
+    -- !ids? (chat) (%d+)
+    if chanId then
+      local chan = ("%s#id%s"):format(type, chanId)
+      if type == 'chat' then
+        chat_info(chan, returnids, {receiver=receiver})
+      else
+        channel_get_users(chan, channelUserIDs, {receiver=receiver})
+      end
+    else
+      -- !id chat/channel
+      local chan = ("%s#id%s"):format(msg.to.type, msg.to.id)
+      if msg.to.type == 'channel' then
+        channel_get_users(chan, channelUserIDs, {receiver=receiver})
+      end
+      if msg.to.type == 'chat' then
+        chat_info(chan, returnids, {receiver=receiver})
+      else
+        return "You are not in a group."
+      end
+    end
+  elseif matches[1] == "member" and matches[2] == "@" then    
+    
+    local nick = matches[3]
+    local chan = get_receiver(msg)
+
+    if msg.to.type == 'chat' then
+      chat_info(chan, function (extra, success, result)
+        local receiver = extra.receiver
+        local nick = extra.nick
+        local found
+        for k,user in pairs(result.members) do
+          if user.username == nick then
+            found = user
+          end
+        end
+        if not found then
+          send_msg(receiver, "User not found on this chat.", ok_cb, false)
+        else
+          local text = found.peer_id
+          send_msg(receiver, text, ok_cb, false)
+        end
+      end, {receiver=chan, nick=nick})
+    elseif msg.to.type == 'channel' then
+      -- TODO
+      return 'Channels currently not supported'
+    else
+      return 'You are not in a group'
+    end
+  elseif matches[1] == "members" and matches[2] == "name" then
+    
+    local text = matches[3]
+    local chan = get_receiver(msg)
+
+    if msg.to.type == 'chat' then
+      chat_info(chan, function (extra, success, result)
+        local members = result.members
+        local receiver = extra.receiver
+        local text = extra.text
+
+        local founds = {}
+        for k,member in pairs(members) do
+          local fields = {'first_name', 'print_name', 'username'}
+          for k,field in pairs(fields) do
+            if member[field] and type(member[field]) == "string" then
+              if member[field]:match(text) then
+                local id = tostring(member.peer_id)
+                founds[id] = member
+              end
+            end
+          end
+        end
+        if next(founds) == nil then -- Empty table
+          send_msg(receiver, "User not found on this chat.", ok_cb, false)
+        else
+          local text = ""
+          for k,user in pairs(founds) do
+            local first_name = user.first_name or ""
+            local print_name = user.print_name or ""
+            local user_name = user.user_name or ""
+            local id = user.peer_id  or "" -- This would be funny
+            text = text.."First name: "..first_name.."\n"
+              .."Print name: "..print_name.."\n"
+              .."User name: "..user_name.."\n"
+              .."ID: "..id
+          end
+          send_msg(receiver, text, ok_cb, false)
+        end
+      end, {receiver=chan, text=text})
+    elseif msg.to.type == 'channel' then
+      -- TODO
+      return 'Channels currently not supported'
+    else
+      return 'You are not in a group'
+    end
+  end
+end
+
+return {
+  description = "Know your id or the id of a chat members.",
+  usage = {
+    "id: Return your ID and the chat id if you are in one.",
+    "ids chat: Return the IDs of the current chat members.",
+    "ids chat <chat_id>: Return the IDs of the <chat_id> members.",
+    "ids channel: Return the IDs of the current channel members.",
+    "ids channel <channel_id>: Return the IDs of the <channel_id> members.",
+    "id member @<user_name>: Return the member @<user_name> ID from the current chat",
+    "id members name <text>: Search for users with <text> on first_name, print_name or username on current chat"
+  },
+  patterns = {
+    "^id$",
+    "^ids? (chat) (%d+)$",
+    "^ids? (chat)$",
+    "^ids (channel)$",
+    "^ids (channel) (%d+)$",
+    "^id (member) (@)(.+)",
+    "^id (members) (name) (.+)"
+  },
+  run = run
+}
