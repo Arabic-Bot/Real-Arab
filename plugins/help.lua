@@ -46,7 +46,7 @@ function run(msg, matches)
 ♣️ - /setabout : اضافة حول 
 ♣️ - /setname : لاضافة اسم
 ♣️ - /setphoto : لاضافة صورة
-♣️ - /getlink : لانشاء او تغيير الرابط | يصل في الخاص
+♣️ - /link : لجلب الرابط خاص
 ♣️ - /getlink : لعرض الرابط
 ♣️ - /relink : تغير الرابط
 ♣️ - /settings : الاعدادات
