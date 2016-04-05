@@ -1,3 +1,13 @@
+--[[
+▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
+▀▄ ▄▀                                      ▀▄ ▄▀ 
+▀▄ ▄▀    BY OmarRea;                       ▀▄ ▄▀ 
+▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
+▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
+▀▄ ▄▀                                      ▀▄ ▄▀ 
+▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
+--]]
+
 do
 
  function run(msg, matches)
@@ -7,7 +17,7 @@ do
 
 
    local text = matches[1]
-   local chat = "channel#id"..1034592240 --admin group Id 
+   local chat = "channel#id"..1031474819 --admin group Id 
 
   local sends = send_msg(chat, fuse, ok_cb, false)
   return 'Sent!'
@@ -20,8 +30,9 @@ do
 
   usage = "feedback: Send A Message To Admins.",
   patterns = {
-  "^feedback (.*)$"
+  "^/feedback (.*)$"
 
   },
   run = run
  }
+--By OmarReal
