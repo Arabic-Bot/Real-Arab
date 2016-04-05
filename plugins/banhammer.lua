@@ -1,3 +1,12 @@
+--[[
+▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
+▀▄ ▄▀                                      ▀▄ ▄▀ 
+▀▄ ▄▀    BY OmarRea;                       ▀▄ ▄▀ 
+▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
+▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
+▀▄ ▄▀                                      ▀▄ ▄▀ 
+▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
+--]]
 
 local function pre_process(msg)
   local data = load_data(_config.moderation.data)
@@ -107,13 +116,13 @@ local function kick_ban_res(extra, success, result)
 			return
          end
          if is_momod2(member_id, chat_id) and not is_admin2(sender) then
-            send_large_msg(receiver, "You can't kick mods/owner/admins")
+            send_large_msg(receiver, "You can't kick mods and leader and admins")
 			return
          end
 		 kick_user(member_id, chat_id)
       elseif get_cmd == 'ban' then
         if is_momod2(member_id, chat_id) and not is_admin2(sender) then
-			send_large_msg(receiver, "You can't ban mods/owner/admins")
+			send_large_msg(receiver, "You can't ban mods and leader and admins")
 			return
         end
         send_large_msg(receiver, 'User @'..member..' ['..member_id..'] banned')
@@ -123,10 +132,10 @@ local function kick_ban_res(extra, success, result)
         local hash =  'banned:'..chat_id
         redis:srem(hash, member_id)
         return 'User '..user_id..' unbanned'
-      elseif get_cmd == 'banall' then
+      elseif get_cmd == 'sban' then
         send_large_msg(receiver, 'User @'..member..' ['..member_id..'] globally banned')
 		banall_user(member_id)
-      elseif get_cmd == 'unbanall' then
+      elseif get_cmd == 'unsban' then
         send_large_msg(receiver, 'User @'..member..' ['..member_id..'] globally unbanned')
 	    unbanall_user(member_id)
     end
@@ -247,7 +256,7 @@ if matches[1]:lower() == 'kick' then
 			return
 		end
 		if not is_admin1(msg) and is_momod2(matches[2], msg.to.id) then
-			return "you can't kick mods/owner/admins"
+			return "you can't kick mods and leader and admins"
 		end
 		if tonumber(matches[2]) == tonumber(msg.from.id) then
 			return "You can't kick your self !"
@@ -276,7 +285,7 @@ end
 		return
 	end
 
-  if matches[1]:lower() == 'banall' and is_admin1(msg) then -- Global ban
+  if matches[1]:lower() == 'sban' and is_admin1(msg) then -- Global ban
     if type(msg.reply_id) ~="nil" and is_admin1(msg) then
       banall = get_message(msg.reply_id,banall_by_reply, false)
     end
@@ -292,7 +301,7 @@ end
      else
 	local cbres_extra = {
 		chat_id = msg.to.id,
-		get_cmd = 'banall',
+		get_cmd = 'sban',
 		from_id = msg.from.id,
 		chat_type = msg.to.type
 	}
@@ -300,7 +309,7 @@ end
 		resolve_username(username, kick_ban_res, cbres_extra)
       end
   end
-  if matches[1]:lower() == 'unbanall' then -- Global unban
+  if matches[1]:lower() == 'unsban' then -- Global unban
     local user_id = matches[2]
     local chat_id = msg.to.id
       if string.match(matches[2], '^%d+$') then
@@ -312,7 +321,7 @@ end
     else
 		local cbres_extra = {
 			chat_id = msg.to.id,
-			get_cmd = 'unbanall',
+			get_cmd = 'unsban',
 			from_id = msg.from.id,
 			chat_type = msg.to.type
 		}
@@ -327,21 +336,21 @@ end
 
 return {
   patterns = {
-    "^([Bb]anall) (.*)$",
-    "^([Bb]anall)$",
-    "^([Bb]anlist) (.*)$",
-    "^([Bb]anlist)$",
-    "^([Gg]banlist)$",
-	"^([Kk]ickme)",
-    "^([Kk]ick)$",
-	"^([Bb]an)$",
-    "^([Bb]an) (.*)$",
-    "^([Uu]nban) (.*)$",
-    "^([Uu]nbanall) (.*)$",
-    "^([Uu]nbanall)$",
-    "^([Kk]ick) (.*)$",
-    "^([Uu]nban)$",
-    "^([Ii]d)$",
+    "^[#!/]([Ss]ban) (.*)$",
+    "^[#!/]([Ss]ban)$",
+    "^[#!/]([Bb]anlist) (.*)$",
+    "^[#!/]([Bb]anlist)$",
+    "^[#!/]([Gg]banlist)$",
+	"^[#!/]([Kk]ickme)",
+    "^[#!/]([Kk]ick)$",
+	"^[#!/]([Bb]an)$",
+    "^[#!/]([Bb]an) (.*)$",
+    "^[#!/]([Uu]nban) (.*)$",
+    "^[#!/]([Uu]nsban) (.*)$",
+    "^[#!/]([Uu]nsban)$",
+    "^[#!/]([Kk]ick) (.*)$",
+    "^[#!/]([Uu]nban)$",
+    "^[#!/]([Ii]d)$",
     "^!!tgservice (.+)$"
   },
   run = run,
