@@ -1,14 +1,3 @@
---[[
-▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
-▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄ ▄▀    BY OmarRea;                       ▀▄ ▄▀ 
-▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
-▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
-▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
---]]
-
-
 local function usernameinfo (user)
   if user.username then
     return '@'..user.username
@@ -59,7 +48,7 @@ local function run(msg, matches)
   local receiver = get_receiver(msg)
 
   -- Id of the user and info about group / channel
-  if matches[1] == "id" then
+  if matches[1] == "/id" then
     if msg.to.type == 'channel' then
       return ('Chat ID: %s\nUser ID: %s'):format(msg.to.id, msg.from.id)
     end
