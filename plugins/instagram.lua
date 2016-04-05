@@ -99,11 +99,11 @@ end
 end
 return {
    patterns = {
-   "^([Ii]nsta) ([Hh]ttps://www.instagram.com/p/)([^%s]+)$",
-   "^([Ii]nsta) ([Hh]ttps://instagram.com/p/)([^%s]+)$",
-   "^([Ii]nsta) ([Hh]ttp://www.instagram.com/p/)([^%s]+)$",
-   "^([Ii]nsta) ([Hh]ttp://instagram.com/p/)([^%s]+)$",
-   "^([Ii]nsta) ([^%s]+)$",
+   "^/([Ii]nsta) ([Hh]ttps://www.instagram.com/p/)([^%s]+)$",
+   "^/([Ii]nsta) ([Hh]ttps://instagram.com/p/)([^%s]+)$",
+   "^/([Ii]nsta) ([Hh]ttp://www.instagram.com/p/)([^%s]+)$",
+   "^/([Ii]nsta) ([Hh]ttp://instagram.com/p/)([^%s]+)$",
+   "^/([Ii]nsta) ([^%s]+)$",
    },
    run = run
 }
