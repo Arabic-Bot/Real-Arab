@@ -6,7 +6,7 @@ local function run(msg, matches)
     return "DON'T SEND LONG MSGS"
  end
 local function run(msg, matches)
-  if ( tonumber(string.len(matches[1])) > 360 ) then
+  if ( tonumber(string.len(matches[1])) > 560 ) then
   delete_msg(msg.id, ok_cb, true)
   if (is_momod(msg)) then
       return nil
