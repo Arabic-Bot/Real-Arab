@@ -34,7 +34,7 @@ return {
     "text [equation]: Convert LaTeX equation to image"
   },
   patterns = {
-    "^[Tt]ext (.+)$"
+    "^/[Tt]ext (.+)$"
   },
   run = run
 }
