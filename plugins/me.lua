@@ -1,22 +1,33 @@
+--[[
+▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
+▀▄ ▄▀                                      ▀▄ ▄▀ 
+▀▄ ▄▀    BY OmarRea;                       ▀▄ ▄▀ 
+▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
+▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
+▀▄ ▄▀                                      ▀▄ ▄▀ 
+▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
+--]]
+
+
 do
 
 local function run(msg, matches)
   if matches[1] == 'me' then
     if is_sudo(msg) then
 	  send_document(get_receiver(msg), "./files/me/sudo.webp", ok_cb, false)
-      return "انت المطور مالتي 😻🙊"
+      return "you are sudo"
     elseif is_admin(msg) then
 	  send_document(get_receiver(msg), "./files/me/admin.webp", ok_cb, false)
-      return "انت ادمن بلكروب 🌚💭"
+      return "you are admin"
     elseif is_owner(msg) then
 	  send_document(get_receiver(msg), "./files/me/leader.webp", ok_cb, false)
-      return "انت مشرف الكروب🐸💭"
+      return "you are leader"
     elseif is_momod(msg) then
 	  send_document(get_receiver(msg), "./files/me/moderator.webp", ok_cb, false)
-      return "انت طايح حظك😹😹"
+      return "you are moderator"
     else
 	  send_document(get_receiver(msg), "./files/me/member.webp", ok_cb, false)
-      return "انت مجرد عضو 😒💔"
+      return "you are member"
     end
   end
 end
