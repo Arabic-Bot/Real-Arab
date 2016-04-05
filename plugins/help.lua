@@ -64,20 +64,18 @@ function run(msg, matches)
 ♣️ - /close|open links : منع الروابط والاعلانات
 ♣️ - /close|open photo : منع الصور
 ♣️ - /close|open sticker : منع ملصقات
-♣️ - /close|open arabic : منع الغة العربية
 ♣️ - /close|open gifs : منع الصور المتحركة
 ♣️ - /close|open audio : منع بصمات
 ♣️ - /close|open video : منع فديوات
-♣️ - /close|open text
-♣️ - /close|open contacts
-♣️ - /close|open chat
+♣️ - /close|open text : لقفل النص
+♣️ - /close|open contacts : لقفل مشاركة جهات الاتصال
+♣️ - /close|open all : لقفل المحادثة
 ♣️ - /bot lock |unlock : لمنع البوتات
 ♣️ - /close|open spam : منع الكلايش الطويلة
 ♣️ - /close|open flood : قفل التكرار
 ♣️ - /setflood [5-20] تحديد عدد التكرار من
 ♣️ - /lock|unlock rtl : منع الاضافة الجماعية
 ♣️ - /close|open documents : لقفل الوسائط
-♣️ - /close|open text : لقفل النص
 ♣️ - /setusername : وضع معرف للمجموعة
 ♣️ - /del : لحذف اي رسالة بل رد
 ♣️ - /block + الكلمة  : لحضر كلمة معينة
@@ -95,6 +93,7 @@ function run(msg, matches)
 ♣️ - /isup + رابط السيرفر
 ♣️ - /isup + رابط السيرفر
 لجعل بوتك اقوى وتكون وقفاته قليلة
+
 ♠️ - Dev - @Omar_Real7
 
 
