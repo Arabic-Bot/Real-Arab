@@ -521,7 +521,7 @@ function show_supergroup_settingsmod(msg, target)
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "Group settings ⚙🔧:\n◼️Lock links : "..settings.lock_link.."\n◼️Lock flood: "..settings.flood.."\nFlood sensitivity : "..NUM_MSG_MAX.."\n◼️Lock spam: "..settings.lock_spam.."\n◼️Lock Arabic: "..settings.lock_arabic.."\◼️nLock Member: "..settings.lock_member.."\n◼️Lock RTL: "..settings.lock_rtl.."\n◼️Lock Tgservice : "..settings.lock_tgservice.."\n◼️Lock sticker: "..settings.lock_sticker.."\n◼️Public: "..settings.public.."\n◼️Strict settings: "..settings.strict
+  local text = "Group settings⚙:\n◼️Lock links : "..settings.lock_link.."\n◼️Lock flood: "..settings.flood.."\n◼️Flood sensitivity : "..NUM_MSG_MAX.."\n◼️Lock spam: "..settings.lock_spam.."\n◼️Lock Arabic: "..settings.lock_arabic.."\n◼️Lock Member: "..settings.lock_member.."\n◼️Lock RTL: "..settings.lock_rtl.."\n◼️Lock Tgservice : "..settings.lock_tgservice.."\n◼️Lock sticker: "..settings.lock_sticker.."\n◼️Public: "..settings.public.."\n◼️Strict settings: "..settings.strict
   return text
 end
 
@@ -1076,7 +1076,7 @@ local function run(msg, matches)
 				return
 			end
 			if is_super_group(msg) then
-				return reply_msg(msg.id, 'Group is already added ✅', ok_cb, false)
+				return reply_msg(msg.id, 'SuperGroup is already added.', ok_cb, false)
 			end
 			print("SuperGroup "..msg.to.print_name.."("..msg.to.id..") added")
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] added SuperGroup")
@@ -1087,7 +1087,7 @@ local function run(msg, matches)
 
 		if matches[1] == 'rem' and is_admin1(msg) and not matches[2] then
 			if not is_super_group(msg) then
-				return reply_msg(msg.id, 'Group is not added ❌🔕', ok_cb, false)
+				return reply_msg(msg.id, 'SuperGroup is not added.', ok_cb, false)
 			end
 			print("SuperGroup "..msg.to.print_name.."("..msg.to.id..") removed")
 			superrem(msg)
