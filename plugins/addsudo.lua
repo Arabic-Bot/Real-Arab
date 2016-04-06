@@ -29,8 +29,8 @@ return {
   patterns = {
     "^[!/#$](add dev)",
     "^[!/#$](add dev)",
-    "^(add dev)",
-    "^(add dev)",
+    "^/(add dev)",
+    "^/(add dev)",
   }, 
   run = run,
 }
