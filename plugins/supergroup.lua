@@ -521,7 +521,7 @@ function show_supergroup_settingsmod(msg, target)
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "Group settings ⚙🔧:\n◼️Lock links : "..settings.lock_link.."\n◼️Lock flood: "..settings.flood.."\nFlood sensitivity : "..NUM_MSG_MAX.."\n◼️Lock spam: "..settings.lock_spam.."\n◼️Lock Arabic: "..settings.lock_arabic.."\◼️nLock Member: "..settings.lock_member.."\n◼️Lock RTL: "..settings.lock_rtl.."\n◼️Lock Tgservice : "..settings.lock_tgservice.."\n◼️Lock sticker: "..settings.lock_sticker.."\n◼️Public: "..settings.public.."\n◼️Strict settings: "..settings.strict
+  local text = "SuperGroup settings:\n◼️Lock links : "..settings.lock_link.."\n◼️Lock flood: "..settings.flood.."\n◼️Flood sensitivity : "..NUM_MSG_MAX.."\n◼️Lock spam: "..settings.lock_spam.."\n◼️Lock Arabic: "..settings.lock_arabic.."\n◼️Lock Member: "..settings.lock_member.."\n◼️Lock RTL: "..settings.lock_rtl.."\n◼️Lock sticker: "..settings.lock_sticker.."\n◼️Public: "..settings.public.."\n◼️Strict settings: "..settings.strict
   return text
 end
 
