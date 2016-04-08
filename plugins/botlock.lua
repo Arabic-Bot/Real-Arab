@@ -1,12 +1,3 @@
---[[
-▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
-▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄ ▄▀    BY OmarRea;                       ▀▄ ▄▀ 
-▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
-▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
-▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
---]]
 local function isAntiBotEnabled (chatId)
   local hash = 'bot:lock:'..chatId
   local lock = redis:get(hash)
