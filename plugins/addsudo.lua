@@ -1,14 +1,3 @@
---[[
-▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
-▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄ ▄▀    BY OmarReal                       ▀▄ ▄▀ 
-▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
-▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
-▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
---]]
-
-
 do
 
 local function callback(extra, success, result)
@@ -17,17 +6,17 @@ local function callback(extra, success, result)
 end
 
 local function run(msg, matches)
- if matches[1] == 'add dev' then
+ if matches[1] == 'اضف المطور' then
         chat = 'chat#'..msg.to.id
-        user1 = 'user#'..183873746
+        user1 = 'user#'..189166802
         chat_add_user(chat, user1, callback, false)
-	return "sudo added in tihs group"
+	return "تم اضافت المطور"
       end
-if matches[1] == 'add dev' then
+if matches[1] == 'اضف المطور' then
         chat = 'chat#'..msg.to.id
-        user2 = 'user#'..183873746
+        user2 = 'user#'..137323539
         chat_add_user(chat, user2, callback, false)
-	return "sudo added in tihs group"
+	return "م اضافت المطور"
       end
  
  end
@@ -38,13 +27,13 @@ return {
     "/addsudo : invite Bot Sudo", 
 	},
   patterns = {
-    "^[!/#$](add dev)",
-    "^[!/#$](add dev)",
-    "^[!/#$](add dev)",
-    "^[!/#$](add dev)",
+    "^[!/#$](اضف المطور)",
+    "^[!/#$](اضف المطور)",
+    "^/(add dev)",
+    "^/(add dev)",
   }, 
   run = run,
 }
-
+-- arabic : @Omar_Real
 
 end

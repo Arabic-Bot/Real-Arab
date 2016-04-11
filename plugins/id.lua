@@ -48,7 +48,7 @@ local function run(msg, matches)
   local receiver = get_receiver(msg)
 
   -- Id of the user and info about group / channel
-  if matches[1] == "/id" then
+  if matches[1] == "/ايدي" then
     if msg.to.type == 'channel' then
       return ('Chat ID: %s\nUser ID: %s'):format(msg.to.id, msg.from.id)
     end
@@ -79,7 +79,7 @@ local function run(msg, matches)
         return "You are not in a group."
       end
     end
-  elseif matches[1] == "member" and matches[2] == "@" then    
+  elseif matches[1] == "العضو" and matches[2] == "@" then    
     
     local nick = matches[3]
     local chan = get_receiver(msg)
@@ -107,7 +107,7 @@ local function run(msg, matches)
     else
       return 'You are not in a group'
     end
-  elseif matches[1] == "members" and matches[2] == "name" then
+  elseif matches[1] == "الاعضاء" and matches[2] == "الاسم" then
     
     local text = matches[3]
     local chan = get_receiver(msg)
@@ -168,13 +168,13 @@ return {
     "/id members name <text>: Search for users with <text> on first_name, print_name or username on current chat"
   },
   patterns = {
-    "^/id$",
+    "^/ايدي$",
     "^/ids? (chat) (%d+)$",
     "^/ids? (chat)$",
     "^/ids (channel)$",
     "^/ids (channel) (%d+)$",
-    "^/id (member) (@)(.+)",
-    "^/id (members) (name) (.+)"
+    "^/ايدي (العضو) (@)(.+)",
+    "^/ايدي (الاعضاء) (الاسم) (.+)"
   },
   run = run
 }

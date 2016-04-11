@@ -729,17 +729,17 @@ local receiver = 'chat#'..msg.to.id
 savelog(msg.to.id, name_log.." ["..msg.from.id.."] revoked group link ")
 return export_chat_link(receiver, callback, true)
 end
-if matches[1] == 'link' then
+if matches[1] == 'الرابط خاص' then
 if not is_momod(msg) then
-return "For moderators only!"
+return "انت لست ادمن 👤❌"
 end
 local group_link = data[tostring(msg.to.id)]['settings']['set_link']
 if not group_link then 
-return "Create a link using [ relink ] first !"
+return "قم بأنشاء رابط اولا 👥🍁"
 end
 savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
 send_large_msg('user#id'..msg.from.id, "Group link:\n"..group_link)
-return "Been sent link 😚👍"
+return "تم ارسال الرابط الى الخاص 😚👍"
 end
 if matches[1] == 'setowner' then
 if not is_owner(msg) then
@@ -839,7 +839,7 @@ end
 end
 return {
 patterns = {
-"^/(link)$",
+"^/(الرابط خاص)$",
 "%[(photo)%]",
 "^!!tgservice (.+)$",
 },

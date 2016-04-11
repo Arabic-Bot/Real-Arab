@@ -1,10 +1,10 @@
 --[[
 ▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
 ▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄ ▄▀    BY OmarRea;                       ▀▄ ▄▀ 
+▀▄ ▄▀    BY OmarReal                       ▀▄ ▄▀ 
 ▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
 ▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
-▀▄ ▄▀                                      ▀▄ ▄▀ 
+▀▄ ▄▀ arabic: @moahmmedzedan               ▀▄ ▄▀ 
 ▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
 --]]
 local function isAntiBotEnabled (chatId)
@@ -49,20 +49,20 @@ local function run (msg, matches)
   end
 
   local chatId = msg.to.id
-  if matches[1] == 'lock' then
+  if matches[1] == 'قفل' then
     enableAntiBot(chatId)
-  return 'bot has been locked'
+  return 'تم تفعيل منع البوتات'
   end
-  if matches[1] == 'unlock' then
+  if matches[1] == 'فتح' then
     disableAntiBot(chatId)
-  return 'bot has been unlocked'
+  return 'تم السماح بالبوتات'
   end
   if matches[1] == 'chat_add_user' or matches[1] == 'chat_add_user_link' then
     local user = msg.action.user or msg.from
     if isABotBadWay(user) then
       print("It' a bot!")
       if isAntiBotEnabled(chatId) then
-        print('bot is locked')
+        print('منع البوت مقفل بالفعل')
         local userId = user.id
         if not isBotAllowed(userId, chatId) then
           kickUser(userId, chatId)
@@ -77,12 +77,12 @@ end
 return {
   description = 'Anti bot create by Mustafa ip',
   usage = {
-    '/bot lock: locked add bots to supergroup',
-    '/bot unlock: unlock add bots to supergroup'
+    '/البوت قفل: locked add bots to supergroup',
+    '/البوت فتح: unlock add bots to supergroup'
   },
   patterns = {
-    '^bot (lock)$',
-    '^bot (unlock)$',
+    '^/البوت (قفل)$',
+    '^/البوت (فتح)$',
     '^!!tgservice (chat_add_user)$',
     '^!!tgservice (chat_add_user_link)$'
   },
@@ -94,6 +94,6 @@ return {
 ▀▄ ▄▀    BY MUSTAFA IP                     ▀▄ ▄▀ 
 ▀▄ ▄▀     BY MUSTAFA IP (HackeD_o)         ▀▄ ▄▀ 
 ▀▄ ▄▀ JUST WRITED BY MUSTAFA IP            ▀▄ ▄▀   
-▀▄ ▄▀     ANTI BOT  : منع بوتات            ▀▄ ▄▀ 
+▀▄ ▄▀arabic : @mohammedzedan               ▀▄ ▄▀ 
 ▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
 --]]

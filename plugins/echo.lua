@@ -4,21 +4,27 @@
 ▀▄ ▄▀    BY OmarReal                       ▀▄ ▄▀ 
 ▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
 ▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
-▀▄ ▄▀                                      ▀▄ ▄▀ 
+▀▄ ▄▀  arabic : @mohammedzedan             ▀▄ ▄▀ 
 ▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
 --]]
 
-do
+local function run(msg, matches)
+  local text = matches[1]
+  local b = 1
 
-function run(msg, matches)
-  return 'سورس 🛢 Real-Arabic 📁\nالنسخة 📋 v1.2\n الموقع 💻\n \nhttps://github.com/Arabic-Bot/Real-Arab.git \n  المطورين 🕵🔧 : \n @Omar_Real \n @Mohammedzedan\n @ALNAZEXR \n @X_A_A'
+  while b ~= 0 do
+    text = text:trim()
+    text,b = text:gsub('^!+','')
+  end
+  return text
 end
 
 return {
+  description = "Simplest plugin ever!",
+  usage = "!كرر [whatever]: echoes the msg",
   patterns = {
-    "^ArabicReal"
+    "^/كرر +(.+)$"
   }, 
   run = run 
 }
-
-end
+-- arabic : @mohammedzedan
