@@ -1,8 +1,8 @@
 --[[
 ▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
 ▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄ ▄▀    BY OmarRea;                       ▀▄ ▄▀ 
-▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
+▀▄ ▄▀    BY OmarRea                        ▀▄ ▄▀ 
+▀▄ ▄▀     BY OmarReal (Omar_Real )         ▀▄ ▄▀ 
 ▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
 ▀▄ ▄▀                                      ▀▄ ▄▀ 
 ▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
@@ -88,10 +88,10 @@ local function instagramMedia(msg, query)
 end
 local function run(msg, matches)
 
-if matches[1] == "insta" and not matches[3] then
+if matches[1] == "انستا" and not matches[3] then
     return instagramUser(msg,matches[2])
 end
-if matches[1] == "insta" and matches[3] then
+if matches[1] == "انستا" and matches[3] then
     local media = matches[3]
     if string.match(media , '/') then media = media:gsub("/", "") end
     return instagramMedia(msg,media)
@@ -99,11 +99,11 @@ end
 end
 return {
    patterns = {
-   "^/([Ii]nsta) ([Hh]ttps://www.instagram.com/p/)([^%s]+)$",
-   "^/([Ii]nsta) ([Hh]ttps://instagram.com/p/)([^%s]+)$",
-   "^/([Ii]nsta) ([Hh]ttp://www.instagram.com/p/)([^%s]+)$",
-   "^/([Ii]nsta) ([Hh]ttp://instagram.com/p/)([^%s]+)$",
-   "^/([Ii]nsta) ([^%s]+)$",
+   "^/(انستا) ([Hh]ttps://www.instagram.com/p/)([^%s]+)$",
+   "^/(انستا) ([Hh]ttps://instagram.com/p/)([^%s]+)$",
+   "^/(انستا) ([Hh]ttp://www.instagram.com/p/)([^%s]+)$",
+   "^/(انستا) ([Hh]ttp://instagram.com/p/)([^%s]+)$",
+   "^/(انستا) ([^%s]+)$",
    },
    run = run
 }

@@ -4,14 +4,14 @@
 ▀▄ ▄▀    BY OmarReal                       ▀▄ ▄▀ 
 ▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
 ▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
-▀▄ ▄▀                                      ▀▄ ▄▀ 
+▀▄ ▄▀arabic : @mohammedzedan               ▀▄ ▄▀        
 ▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
 --]]
 
 local function addword(msg, name)
     local hash = 'chat:'..msg.to.id..':badword'
     redis:hset(hash, name, 'newword')
-    return "word has been add\n>"..name
+    return "تم حظر الكلمة\n>"..name
 end
 
 local function get_variables_hash(msg)
@@ -25,7 +25,7 @@ local function list_variablesbad(msg)
 
   if hash then
     local names = redis:hkeys(hash)
-    local text = 'No badword in this group:\n\n'
+    local text = 'الكلمات الممنوعة:\n\n'
     for i=1, #names do
       text = text..'> '..names[i]..'\n'
     end
@@ -77,26 +77,26 @@ function clear_commandsbad(msg, cmd_name)
   --Save on redis  
   local hash = get_variables_hash(msg)
   redis:hdel(hash, cmd_name)
-  return ''..cmd_name..'has been removed'
+  return ''..cmd_name..'تم ✅ السماح في الكلمة 🗣'
 end
 
 local function run(msg, matches)
-  if matches[2] == 'block' then
+  if matches[2] == 'منع' then
   if not is_momod(msg) then
-   return 'only for moderators'
+   return 'انت لست ادمن ❌👤'
   end
   local name = string.sub(matches[3], 1, 50)
 
   local text = addword(msg, name)
   return text
   end
-  if matches[2] == 'badwords' then
+  if matches[2] == 'الكلمات الممنوعة' then
   return list_variablesbad(msg)
-  elseif matches[2] == 'clearbadwords' then
+  elseif matches[2] == 'مسح الكلمات الممنوعة' then
 if not is_momod(msg) then return '_|_' end
   local asd = '1'
     return clear_commandbad(msg, asd)
-  elseif matches[2] == 'unblock' or matches[2] == 'rw' then
+  elseif matches[2] == 'سماح' or matches[2] == 'rw' then
    if not is_momod(msg) then return '_|_' end
     return clear_commandsbad(msg, matches[3])
   else
@@ -109,12 +109,13 @@ end
 return {
   patterns = {
   "^([!/])(rw) (.*)$",
-  "^([!/])(block) (.*)$",
-   "^([!/])(unblock) (.*)$",
-    "^([!/])(badwords)$",
-    "^(clearbadwords)$",
+  "^([!/])(منع) (.*)$",
+   "^([!/])(سماح) (.*)$",
+    "^([!/])(الكلمات الممنوعة)$",
+    "^(مسح الكلمات الممنوعة)$",
 "^(.+)$",
 	   
   },
   run = run
 }
+-- arabic : @mohammedzedan

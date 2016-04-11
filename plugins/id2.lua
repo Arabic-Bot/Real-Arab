@@ -6,15 +6,15 @@ do
     else
       user_name = ''
     end
-    local text = 'User ID  : '..result.from.peer_id..'\n'
-               ..'Username : '..user_name..'\n'
+    local text = 'الايدي  : '..result.from.peer_id..'\n'
+               ..'المعرف : '..user_name..'\n'
     send_large_msg(extra, text)
   end
 
 --------------------------------------------------------------------------------
 
   local function run(msg)
-    if msg.text == '/in' and msg.reply_id then
+    if msg.text == 'المعرف' and msg.reply_id then
       get_message(msg.reply_id, action_by_reply, get_receiver(msg))
     end
   end
@@ -25,7 +25,7 @@ do
     decription = 'Print user_id by_reply',
     usage = 'Reply to a message then type: !id',
     patterns = {
-      "^/(in)$"
+      "^/(المعرف)$"
     },
     run = run
   }

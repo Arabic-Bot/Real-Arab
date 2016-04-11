@@ -1,7 +1,7 @@
 --[[
 ▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
 ▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄ ▄▀    BY OmarRea;                       ▀▄ ▄▀ 
+▀▄ ▄▀    BY OmarReal                       ▀▄ ▄▀ 
 ▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
 ▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
 ▀▄ ▄▀                                      ▀▄ ▄▀ 
@@ -17,7 +17,7 @@ do
         end
         return {
             patterns = {
-                '/getfile (.+)'
+                '/اجلب الملف (.+)'
                 },
             run = run
         }

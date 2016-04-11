@@ -4,7 +4,7 @@
 ▀▄ ▄▀    BY OmarReal                       ▀▄ ▄▀ 
 ▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
 ▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
-▀▄ ▄▀                                      ▀▄ ▄▀ 
+▀▄ ▄▀  arabic : @mohammedzedan             ▀▄ ▄▀ 
 ▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
 --]]
 
@@ -21,9 +21,10 @@ end
 
 return {
   description = "Simplest plugin ever!",
-  usage = "!echo [whatever]: echoes the msg",
+  usage = "!كرر [whatever]: echoes the msg",
   patterns = {
-    "^/echo +(.+)$"
+    "^/كرر +(.+)$"
   }, 
   run = run 
 }
+-- arabic : @mohammedzedan

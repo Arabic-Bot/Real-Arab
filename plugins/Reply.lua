@@ -4,17 +4,17 @@ ws = {}
 rs = {}
 
 -- some examples of how to use this :3 
-ws[1] = "Hi" -- msg 
-rs[1] = "Hello." -- reply
+ws[1] = "مرحبا" -- msg 
+rs[1] = "مراحب" -- reply
 
-ws[2] = "how are you" -- msg
-rs[2] = "I'm fine. \nhow about you ? " -- reply
+ws[2] = "شلونك" -- msg
+rs[2] = "تمام وانت" -- reply
 
-ws[3] = "can i fuck you" -- msg
-rs[3] = "Nope." -- reply
+ws[3] = "دووم" -- msg
+rs[3] = "تسلم" -- reply
 
-ws[4] = "Fuck you" -- msg 
-rs[4] = "no fuck you you. :P" -- reply
+ws[4] = "شكو ماكو" -- msg 
+rs[4] = "ماكو غير الضوجة" -- reply
 
 
 -- the main function

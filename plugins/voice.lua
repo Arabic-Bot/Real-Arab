@@ -1,4 +1,4 @@
--- dev by @Omar_Real7
+-- dev by @Omar_Real
 do
 local function run(msg, matches)
   local url = "http://tts.baidu.com/text2audio?lan=en&ie=UTF-8&text="..matches[1]
@@ -10,10 +10,10 @@ end
 return {
   description = "text to voice",
   usage = {
-    "/voice [text]"
+    "/صوت [text]"
   },
   patterns = {
-    "^/voice (.+)$"
+    "^/صوت (.+)$"
   },
   run = run
 }

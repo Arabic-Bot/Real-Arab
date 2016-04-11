@@ -31,7 +31,7 @@ end
 
 return {
   patterns = {
-    "^/(get) (.+)$"
+    "^(ارسل) (.+)$"
   },
   run = run
 }

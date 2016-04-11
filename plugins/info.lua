@@ -1,32 +1,21 @@
---[[
-▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
-▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄ ▄▀    BY OmarRea;                       ▀▄ ▄▀ 
-▀▄ ▄▀     BY OmarReal (Omar_Real7)         ▀▄ ▄▀ 
-▀▄ ▄▀ JUST WRITED BY OmarReal              ▀▄ ▄▀   
-▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
---]]
-
-
 do
 function run(msg, matches)
 local reply_id = msg['id']
 
-local info = ' - Name : '..msg.from.first_name..'\n'
-..'◼️ - Id : '..msg.from.id..'\n'
-..'◼️ - Username : @'..msg.from.username..'\n'
-..'◼️ - Group ID : '..msg.to.id..'\n'
-..'◼️ - Number of members : 5.k\n - Group Name : '..msg.to.title
+local info = ' - اسمك/ج : '..msg.from.first_name..'\n'
+..'◼️ - ايديك/ج : '..msg.from.id..'\n'
+..'◼️ - معرفك/ج : @'..msg.from.username..'\n'
+..'◼️ - ايدي الكروب : '..msg.to.id..'\n'
+..'◼️ - المجموعة يضاف اليها 5ك\n -  اسم المجموعة : '..msg.to.title
 
 reply_msg(reply_id, info, ok_cb, false)
 end
 
 return {
 patterns = {
-"^/info"
+"^/معلومات"
 },
 run = run
 }
---Coded By Omar Aliraqe >> @Omar_Real7
+--Coded By @X_A_A >> 
 end

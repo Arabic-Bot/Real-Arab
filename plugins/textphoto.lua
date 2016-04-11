@@ -1,7 +1,7 @@
 --[[
 ▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
 ▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄ ▄▀ BY @Omar_Real7;                      ▀▄ ▄▀ 
+▀▄ ▄▀ BY @Omar_Real7l                      ▀▄ ▄▀ 
 ▀▄ ▄▀            BY Omar (@OmarReal7)      ▀▄ ▄▀ 
 ▀▄ ▄▀JUST WRITED BY Omar_Real7             ▀▄ ▄▀   
 ▀▄ ▄▀                                      ▀▄ ▄▀ 
@@ -31,10 +31,10 @@ end
 return {
   description = "Convert LaTeX equation to image",
   usage = {
-    "text [equation]: Convert LaTeX equation to image"
+    "صورة [equation]: Convert LaTeX equation to image"
   },
   patterns = {
-    "^/[Tt]ext (.+)$"
+    "^/صورة (.+)$"
   },
   run = run
 }
