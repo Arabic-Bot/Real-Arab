@@ -3,7 +3,7 @@
 
 
 
-# developer @Omar_Real7
+# developer @Omar_Real
 
 # Installation التنصيب
 
