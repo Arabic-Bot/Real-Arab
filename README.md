@@ -1,6 +1,6 @@
 # Arabic-Real
 
-# developers
+# developers المطورين
 
 @Omar_Real
 
@@ -11,7 +11,7 @@
 @X_A_A
 
 
-# Installation
+# التنصيب
 
 ```sh
 # Install dependencies.
@@ -20,26 +20,26 @@ sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-d
 
 # Let's install the bot.
 cd $HOME
-git clone https://github.com/Omar-moon/Real-Bot.git -b supergroups
+git clone https://github.com/Arabic-Bot/Real-Arab.git -b supergroups
 cd TeleSeed
 chmod +x launch.sh
 ./launch.sh install
 ./launch.sh # Enter a phone number & confirmation code.
 ```
 ### One command
-To install everything in one command (useful for VPS deployment) on Debian-based distros, use:
+ على السيرفر VPS
 ```sh
 #https://github.com/yagop/telegram-bot/wiki/Installation
-sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes && git clone https://github.com/Omar-moon/Real-Bot.git -b supergroups && cd TeleSeed && chmod +x launch.sh && ./launch.sh install && ./launch.sh
+sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes && git clone https://github.com/Arabic-Bot/Real-Arab.git -b supergroups && cd TeleSeed && chmod +x launch.sh && ./launch.sh install && ./launch.sh
 ```
 
 * * *
 
 ### Realm configuration
 
-After you run the bot for first time, send it `!id`. Get your ID and stop the bot.
+طريقة جعل نفسك المطوور الوحيد في البوت
 
-Open ./data/config.lua and add your ID to the "sudo_users" section in the following format:
+افتح مجلد ال DETA وقم بوضع الايدي الخاص بك
 ```
   sudo_users = {
     110626080,
@@ -50,11 +50,9 @@ Open ./data/config.lua and add your ID to the "sudo_users" section in the follow
   }
 ```
 
-# Speclal thanks For Mustafa Ip
+# نتمنى لكم تنصيب ممتع
 
-# Speclal thanks For MOHAMED DEVT
-
-# Dev Channel
+# القنوات الخاصة
 
 @linuxch
 
