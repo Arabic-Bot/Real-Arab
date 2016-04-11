@@ -1,4 +1,4 @@
---[[
+﻿--[[
 ▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
 ▀▄ ▄▀                                      ▀▄ ▄▀ 
 ▀▄ ▄▀    BY OmarRea;                       ▀▄ ▄▀ 
@@ -71,10 +71,10 @@ local function description_rules(msg, nama)
          rules = "\nRules :\n"..rules.."\n"
       end
       local sambutan = "هلا🍷🌝 "..nama.."\n انت الان في '"..string.gsub(msg.to.print_name, "_", " ").."'\nلرؤية الاوامر  /مساعدة"
-      local text = sambutan.."\n لاضهار القوانين /القوانين 🙏🏿      "
+      local text = sambutan.."\n لاضهار القوانين /القوانين 🙏🏿   "
+      local text = text.."\n للخروج من المجموعة  /مغادرة☹"
       local text = text..""
-      local text = text.."                                               "
-      local text = text.."\n للخروج من المجموعة  /اطردني ☹️"
+      local text = text..""
       local receiver = get_receiver(msg)
       send_large_msg(receiver, text, ok_cb, false)
    end
