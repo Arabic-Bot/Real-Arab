@@ -23,7 +23,6 @@ do local _ = {
     "kickbot",
     "help",
     "getfile",
-    "botlock",
     "badword",
     "sticker",
     "image",
