@@ -12,7 +12,7 @@ do
 
  function run(msg, matches)
  local ch = 'chat#id'..msg.to.id
- local fuse = 'تم وصول رسالة\n\nUser ID: ' .. msg.from.id .. '\n\n الاسم: ' .. msg.from.print_name ..'\n\nالمعرف: @' .. msg.from.username ..'\n\nايدي المجموعة: '..msg.to.id.. '\n\nالرسالة:\n' .. matches[1]
+ local fuse = 'تم وصول رسالة\n\n الايدي :' .. msg.from.id .. '\n\n الاسم: ' .. msg.from.print_name ..'\n\nالمعرف: @' .. msg.from.username ..'\n\nايدي المجموعة: '..msg.to.id.. '\n\nالرسالة:\n' .. matches[1]
  local fuses = '!printf user#id' .. msg.from.id
 
 
