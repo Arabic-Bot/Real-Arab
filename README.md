@@ -1,4 +1,4 @@
-# Real-Bot 
+# Real-Bot  النسخة العربية 
 
 
 
@@ -44,12 +44,5 @@ Open ./data/config.lua and add your ID to the "sudo_users" section in the follow
   }
 ```
 
-# Speclal thanks For Mustafa Ip
 
-# Speclal thanks For MOHAMED DEVT
-
-# Dev Channel
-
-@linuxch
-
-@iq_dev8
+# نتمنى لكم استخداما مريحا
